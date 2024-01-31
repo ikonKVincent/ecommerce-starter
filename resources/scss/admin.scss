@@ -1,0 +1,69 @@
+@use "./base"; // Config
+@use "./components/app/modal"; // App : modal
+@use "./components/app/drawer"; // App : drawer
+@use "./components/fields/password"; // Fields : password
+@use "./components/fields/switch"; // Fields : switch
+@use "./components/fields/select"; // Fields : select
+// Navigation
+:root {
+    --navigationWidth: 260px;
+}
+.main-navigation {
+    @apply bg-transparent pointer-events-auto relative z-10 transition-all duration-300;
+    @apply h-full w-[var(--navigationWidth)];
+    @apply text-sm;
+}
+.main {
+    @apply relative min-h-screen w-full overflow-x-hidden p-2 transition-all duration-300 xl:max-w-[calc(100%_-_var(--navigationWidth))] xl:ms-[var(--navigationWidth)];
+    .main-content {
+        @apply border rounded-xl bg-white w-full min-h-[calc(100vh_-_20px)];
+    }
+}
+// Form
+.form-group {
+    @apply mb-4 border-b pb-4;
+}
+.form-control {
+    background: #e8e8e8;
+    @apply px-2 lg:px-3 py-2 lg:py-3 rounded-md text-sm border-0;
+    line-height: 1.2;
+    transition: all 0.2s ease;
+}
+textarea.form-control {
+    min-height: 100px;
+}
+.form-control::placeholder {
+    opacity: 1;
+    @apply text-gray-400;
+}
+.form-control:focus,
+.form-control:focus-within {
+    box-shadow: 0 0 2px 2px hsla(var(--color-primary), 0.5);
+    outline: none;
+}
+.form-control--disabled,
+.form-control[disabled],
+.form-control[readonly] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.form-control[aria-invalid="true"],
+.form-control.form-control--error {
+    box-shadow: inset 0px 0px 0px 1px #d8d8d8, 0px 0px 0px 2px #f77e7e;
+}
+
+.form-control[aria-invalid="true"]:focus,
+.form-control[aria-invalid="true"]:focus-within,
+.form-control.form-control--error:focus,
+.form-control.form-control--error:focus-within {
+    box-shadow: inset 0px 0px 0px 1px #d8d8d8, 0px 0px 0px 2px #f77e7e,
+        0 0.3px 0.4px rgba(0, 0, 0, 0.025), 0 0.9px 1.5px rgba(0, 0, 0, 0.05),
+        0 3.5px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input,
+.select {
+    background: #e8e8e8;
+    @apply border-none;
+}

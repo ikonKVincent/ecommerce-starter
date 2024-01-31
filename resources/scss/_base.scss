@@ -1,0 +1,20 @@
+@use "./config/tailwind"; // Config : tailwind
+@use "./config/fonts"; // Config : fonts
+html {
+    scroll-behavior: smooth;
+}
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+}
+.alert {
+    clip-path: inset(50%);
+}
+.alert--is-visible {
+    clip-path: none;
+}
+// Container
+.l-container {
+    @apply w-11/12 mx-auto max-w-screen-xl;
+}
